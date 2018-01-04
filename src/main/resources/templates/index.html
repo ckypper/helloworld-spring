@@ -1,0 +1,17 @@
+<html>
+	<body>
+		<input type="text" onchange="onChange(event)" />
+		<div id="main">
+		</div>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script>
+			function onChange(event) {
+				let id = event.target.value;
+				$.get("/users/" + id, function(response) {
+					$("#main").html("Name: " + response.name);
+				});
+			}
+		</script>
+	</body>
+</html>
